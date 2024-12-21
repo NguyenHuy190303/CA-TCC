@@ -151,6 +151,7 @@ if training_mode == "random_init":
 
     
 if training_mode == "SupCon":
+    data_perc = "1"  # Define data_perc with an appropriate value
     load_from = os.path.join(       
         os.path.join(logs_save_dir, experiment_description, run_description, f"ft_{data_perc}p_seed_{SEED}", "saved_models"))      
     chkpoint = torch.load(os.path.join(load_from, "ckp_last.pt"), map_location=device)      

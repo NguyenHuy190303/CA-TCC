@@ -1,19 +1,12 @@
 import os
-
-import numpy as np
 import torch
-from torch.utils.data import DataLoader
+import numpy as np
 from torch.utils.data import Dataset
-
-from .augmentations import DataTransform
-
+from dataloader.augmentations import DataTransform
 
 class Load_Dataset(Dataset):
-    # Initialize your data, download, etc.
     def __init__(self, dataset, config, training_mode):
-        super(Load_Dataset, self).__init__()
         self.training_mode = training_mode
-
         X_train = dataset["samples"]
         y_train = dataset["labels"]
 
@@ -47,7 +40,6 @@ class Load_Dataset(Dataset):
 def data_generator(data_path, configs, training_mode):
     batch_size = configs.batch_size
 
-
     if "_1p" in training_mode:
         train_dataset = torch.load(os.path.join(data_path, "train_1perc.pt"))
     elif "_5p" in training_mode:
@@ -80,5 +72,4 @@ def data_generator(data_path, configs, training_mode):
 
     test_loader = torch.utils.data.DataLoader(dataset=test_dataset, batch_size=batch_size,
                                               shuffle=False, drop_last=False, num_workers=0)
-
     return train_loader, valid_loader, test_loader
