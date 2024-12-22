@@ -35,8 +35,17 @@ Experiments demonstrate state-of-the-art performance on real-world datasets and 
   ```bash
   conda install pytorch==1.7.0 torchvision==0.8.0 torchaudio==0.7.0 cudatoolkit=11.0 -c pytorch
   ```
+### Running the Pipeline
 
----
+For Linux:
+```bash
+./ca_tcc_pipelin.sh
+```
+
+For windows:
+```bash
+run.bat
+```
 
 ## Datasets
 ### Download Links
